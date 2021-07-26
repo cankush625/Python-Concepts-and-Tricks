@@ -10,3 +10,9 @@ name = input("Enter the name: ")
 client.send(bytes(name, 'utf-8'))
 
 print(client.recv(1024).decode())
+
+# Using shutdown() method, we tell the server that, we are done with sending the request.
+# Now, I will not send further request. I can only receive the response.
+client.shutdown(socket.SHUT_RDWR)
+
+client.close()
